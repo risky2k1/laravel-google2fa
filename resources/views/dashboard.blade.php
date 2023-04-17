@@ -10,6 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    @if(\Illuminate\Support\Facades\Auth::user()->google2fa_secret == null)
+                    <a href="{{route('2fa.form')}}"
+                       class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Enable
+                        2FA</a>
+                    @endif
                 </div>
             </div>
         </div>
